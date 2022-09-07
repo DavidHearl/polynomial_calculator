@@ -2,17 +2,8 @@
 from functools import reduce
 from tqdm import tqdm
 
+class PolynomialCalculations:
 
-# class PolynomialCalculations:
-#     def __int__(self):
-#         terms = [34, 41, 51]
-#         a_increments = [0.05, 0.01, 0.005, 0.001]
-#         b_increments = [0.05, 0.1, 0.05, 0.01]
-#         c_increments = [0.05, 0.01, 0.005, 0.001]
-#         d_increments = [1, 0.5, 0.1, 0.05]
-
-#     def calculation:
-#         difference1 = terms[1] - terms[0]
 
 
 
@@ -68,4 +59,3 @@ from tqdm import tqdm
 #     d_array.clear()
 #     # for x in range(len(a_array)):
 #     #     print(f"a = {a_array[x]} : b = {b_array[x]} : c = {c_array[x]} : d = {d_array[x]}")
-
