@@ -1,61 +1,36 @@
-# from time import sleep
+from time import sleep
 from functools import reduce
+import random
 from tqdm import tqdm
 
-class PolynomialCalculations:
+sequence = [34, 41, 51]
+index = [2, 4, 6]
+solutions = []
+ranges = [[-1, 1], [-1, 3], [-1, 3], [-10, 50]]
+
+# formula = ((index + index_skew)^f * m) + a
+# for iteration in range(2):
+for i in tqdm(range(5)):
+    index_skew = round(random.uniform(ranges[0][0], ranges[0][1]), 3)
+    for ii in range(75):
+        exponent = round(random.uniform(ranges[1][0], ranges[1][1]), 3)
+        for iii in range(50):
+            multiplication = round(random.uniform(ranges[2][0], ranges[2][1]), 3)
+            for iv in range(50):
+                addition = round(random.uniform(ranges[3][0], ranges[3][1]), 2)
+                x1 = round((pow(sequence[0] + index_skew, exponent) * multiplication) + addition, 2)
+                x2 = round((pow(sequence[1] + index_skew, exponent) * multiplication) + addition, 2)
+                x3 = round((pow(sequence[2] + index_skew, exponent) * multiplication) + addition, 2)
+                if 33.5 <= x1 <= 34.5 and 40.5 <= x2 <= 41.5 and 50.5 <= x3 <= 51.5:
+                    solutions.append([index_skew, exponent, multiplication, addition])
+                if x1 == 34 and x2 == 41 and x3 == 51:
+                    print(index_skew, exponent, multiplication, addition)
 
 
+for i in range(len(solutions)):
+    print(solutions[i], sep="\n")
 
 
+print("Tested:", "{:,}".format(5*50*50*50), "Calculations - ", "{:,}".format(len(solutions)), "Solutions")
 
 
-# sequence = [2, 4, 6]
-
-# ranges = [2, 75, 80, 80, 60]
-# t = [5, 2, 0.5, 0]
-
-# total_calculations = reduce(lambda x, y: x * y, ranges)
-
-# a_array = []
-# b_array = []
-# c_array = []
-# d_array = []
-
-# # ((n + b)^f * m) + a
-
-# for test in range(ranges[0]):
-#     a = -0.75
-#     for i in tqdm(range(ranges[1])):
-#         b = -1
-#         for ii in range(ranges[2]):
-#             c = -1
-#             for iii in range(ranges[3]):
-#                 d = -10
-#                 for iv in range(ranges[4]):
-#                     x1 = round((pow(sequence[0] + a, b) * c) + d, 2)
-#                     x2 = round((pow(sequence[1] + a, b) * c) + d, 2)
-#                     x3 = round((pow(sequence[2] + a, b) * c) + d, 2)
-#                     if terms[0] - t[test] <= x1 <= terms[0] + - t[test] and \
-#                             terms[1] - t[test] <= x2 <= terms[1] + t[test] and \
-#                             terms[2] - t[test] <= x3 <= terms[2] + t[test]:
-#                         a_array.append((round(a, 2))/1)
-#                         b_array.append((round(b, 2))/1)
-#                         c_array.append((round(c, 2))/1)
-#                         d_array.append((round(d, 2))/1)
-#                     d += d_increments[test]
-#                 c += c_increments[test]
-#             b += b_increments[test]
-#         a += a_increments[test]
-#     print("Tested:", "{:,}".format(total_calculations / ranges[0]),
-#           "Calculations - ", "{:,}".format(len(a_array)), "Solutions")
-#     # print(round(a,3), round(b,3), round(c,3), round(d,3))
-#     a = (sum(a_array) / len(a_array)) - (a_increments[test] * ranges[test]) / 2
-#     b = (sum(b_array) / len(b_array)) - (b_increments[test] * ranges[test]) / 2
-#     c = (sum(c_array) / len(c_array)) - (c_increments[test] * ranges[test]) / 2
-#     d = (sum(d_array) / len(d_array)) - (d_increments[test] * ranges[test]) / 2
-#     a_array.clear()
-#     b_array.clear()
-#     c_array.clear()
-#     d_array.clear()
-#     # for x in range(len(a_array)):
-#     #     print(f"a = {a_array[x]} : b = {b_array[x]} : c = {c_array[x]} : d = {d_array[x]}")
